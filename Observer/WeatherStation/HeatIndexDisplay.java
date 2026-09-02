@@ -1,21 +1,10 @@
-import java.util.Observer;
-import java.util.Observable;
-public class HeatIndexDisplay implements DisplayElement, Observer{
+import java.util.concurrent.Flow;
+
+public class HeatIndexDisplay implements DisplayElement, Flow.Subscriber<WeatherMeasureMent>{
     private float heatIndex;
-    Observable observable;
-    public HeatIndexDisplay(Observable weatherData) {
-       observable = weatherData;
-       observable.addObserver(this);
-    }
-
-
-    @Override
-    public void update(Observable obs, Object args) {
-        if(obs instanceof WeatherData data) {
-            heatIndex = computeHeatIndex(data.getTemperature(), data.getHumidity());
-            display();
-        }
-
+    private Flow.Subscription subscription;
+    public HeatIndexDisplay(WeatherData data) {
+        data.subscribe(this);
     }
 
     @Override
@@ -33,5 +22,28 @@ public class HeatIndexDisplay implements DisplayElement, Observer{
                 0.000000000843296 * (t * t * rh * rh * rh)) -
                 (0.0000000000481975 * (t * t * t * rh * rh * rh)));
         return index;
+    }
+
+    @Override
+    public void onSubscribe(Flow.Subscription subscription) {
+        this.subscription = subscription;
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onNext(WeatherMeasureMent data) {
+        heatIndex = computeHeatIndex(data.temperature(), data.humidity());
+        display();
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+        throwable.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
+
     }
 }

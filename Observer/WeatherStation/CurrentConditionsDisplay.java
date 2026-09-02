@@ -1,23 +1,33 @@
-import java.util.Observable;
-import java.util.Observer;
+import java.util.concurrent.Flow;
 
-public class CurrentConditionsDisplay implements DisplayElement, Observer{
-    Observable observable;
+public class CurrentConditionsDisplay implements DisplayElement, Flow.Subscriber<WeatherMeasureMent> {
     private float humidity;
     private float temperature;
-
-    public CurrentConditionsDisplay(Observable o) {
-        this.observable = o;
-        o.addObserver(this);
+    private Flow.Subscription subscription;
+    public CurrentConditionsDisplay(WeatherData data) {
+        data.subscribe(this);
     }
 
-    public void update(Observable obs, Object args) {
-        if (obs instanceof WeatherData weatherData){
-            this.temperature = weatherData.getTemperature();
-            this.humidity = weatherData.getHumidity();
-            display();
-        }
+    @Override
+    public void onSubscribe(Flow.Subscription subscription) {
+        this.subscription = subscription;
+        this.subscription.request(1);
+    }
 
+    public void onNext(WeatherMeasureMent weatherData) {
+        this.temperature = weatherData.temperature();
+        this.humidity = weatherData.humidity();
+        display();
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+        throwable.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
     }
 
     public void display() {

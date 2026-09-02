@@ -1,15 +1,20 @@
-import java.util.Observable;
-public class WeatherData extends Observable {
+import java.util.concurrent.SubmissionPublisher;
+
+public class WeatherData extends SubmissionPublisher<WeatherMeasureMent> {
     private float temperature;
     private float humidity;
     private float pressure;
 
     public WeatherData() {
+
     }
 
     public void measurementsChanged() {
-        setChanged();
-        notifyObservers();
+        this.submit(new WeatherMeasureMent(
+                this.temperature,
+                this.humidity,
+                this.pressure
+        ));
     }
 
     public void setMeasurements(float temperature, float humidity, float pressure) {
