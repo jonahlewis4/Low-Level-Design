@@ -7,7 +7,7 @@ public class StarbuzzCoffee {
         beverage2 = new Mocha(beverage2);
         beverage2 = new Mocha(beverage2);
         beverage2 = new Whip(beverage2);
-        System.out.println(beverage2.getDescription() + " $" + beverage.cost());
+        System.out.println(beverage2.getDescription() + " $" + beverage2.cost());
 
         Beverage beverage3 = new HouseBlend();
         beverage3 = new Soy(beverage3);
