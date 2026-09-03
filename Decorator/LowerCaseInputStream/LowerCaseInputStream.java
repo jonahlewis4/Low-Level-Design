@@ -6,6 +6,7 @@ public class LowerCaseInputStream extends FilterInputStream {
     InputStream in;
     public LowerCaseInputStream(InputStream in) {
         super(in);
+        this.in = in;
     }
 
     @Override
