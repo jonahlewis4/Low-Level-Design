@@ -2,16 +2,14 @@ import java.util.ArrayList;
 
 public abstract class Pizza {
     String name;
-    String dough;
-    String sauce;
+    Dough dough;
+    Sauce sauce;
+    Veggies[] veggies;
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clams clam;
     ArrayList<String> toppings = new ArrayList<>();
-    void prepare(){
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        toppings.forEach((String topping) -> System.out.println("\t" + topping));
-    }
+    abstract void prepare();
     void bake() {
         System.out.println("Bake for 25 minutes at 350");
     }
@@ -22,7 +20,15 @@ public abstract class Pizza {
         System.out.println("Place pizza in ofﬁcial PizzaStore box");
     }
 
+    void setName(String name) {
+        this.name = name;
+    }
     public String getName() {
+        return name;
+    }
+
+    public String toString() {
+        //code to print pizza here
         return name;
     }
 }
