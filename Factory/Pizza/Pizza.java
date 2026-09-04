@@ -8,7 +8,6 @@ public abstract class Pizza {
     Cheese cheese;
     Pepperoni pepperoni;
     Clams clam;
-    ArrayList<String> toppings = new ArrayList<>();
     abstract void prepare();
     void bake() {
         System.out.println("Bake for 25 minutes at 350");
@@ -29,7 +28,7 @@ public abstract class Pizza {
 
     public String toString() {
         //code to print pizza here
-        return name;
+        return name + "\n with " + dough + ", " + sauce + ", " + cheese;
     }
 }
 
