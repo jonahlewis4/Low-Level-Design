@@ -1,4 +1,4 @@
-public class ChicagoStyleCheesePizza extends Pizza {
+public class ChicagoStyleCheesePizza extends CheesePizza {
     public ChicagoStyleCheesePizza() {
         name = "Chicago Style Deep Dish Cheese Pizza";
         dough = "Extra Thick Crust Dough";
