@@ -10,7 +10,7 @@ public abstract class Pizza {
         System.out.println("Tossing dough...");
         System.out.println("Adding sauce...");
         System.out.println("Adding toppings: ");
-        toppings.forEach(System.out::println);
+        toppings.forEach((String topping) -> System.out.println("\t" + topping));
     }
     void bake() {
         System.out.println("Bake for 25 minutes at 350");

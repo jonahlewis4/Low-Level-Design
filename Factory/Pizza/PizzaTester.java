@@ -2,6 +2,12 @@ public class PizzaTester {
     public static void main(String[] args) {
         String pizzaType = "cheese";
         PizzaStore chiStore = new ChicagoPizzaStore();
-        chiStore.orderPizza(pizzaType);
+        PizzaStore nyStore = new NYPizzaStore();
+
+        Pizza pizza = nyStore.orderPizza(pizzaType);
+        System.out.println("Ethan ordered a " + pizza.getName() + "\n");
+
+        pizza = chiStore.orderPizza(pizzaType);
+        System.out.println("Joel ordered a " + pizza.getName() + "\n");
     }
 }
