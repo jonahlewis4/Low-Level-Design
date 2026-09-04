@@ -1,5 +1,4 @@
 public class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
-    //TODO add implementations for these
     @Override
     public Dough createDough() {
         return new ThickCrustDough();
