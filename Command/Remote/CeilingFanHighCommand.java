@@ -1,7 +1,8 @@
 public class CeilingFanHighCommand implements Command{
     CeilingFan ceilingFan;
-    int prevSpeed;
+    CeilingFan.Speed prevSpeed;
     public CeilingFanHighCommand(CeilingFan ceilingFan) {
+        this.prevSpeed = ceilingFan.getSpeed();
         this.ceilingFan = ceilingFan;
     }
 
@@ -14,13 +15,13 @@ public class CeilingFanHighCommand implements Command{
 
     @Override
     public void undo() {
-        if (prevSpeed == CeilingFan.HIGH) {
+        if (prevSpeed == CeilingFan.Speed.HIGH) {
             ceilingFan.high();
-        } else if (prevSpeed == CeilingFan.MEDIUM) {
+        } else if (prevSpeed == CeilingFan.Speed.MEDIUM) {
             ceilingFan.medium();
-        } else if (prevSpeed == CeilingFan.LOW) {
+        } else if (prevSpeed == CeilingFan.Speed.LOW) {
             ceilingFan.low();
-        } else if (prevSpeed == CeilingFan.OFF) {
+        } else if (prevSpeed == CeilingFan.Speed.OFF) {
             ceilingFan.off();
         }
     }

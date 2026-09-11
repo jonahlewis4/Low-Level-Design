@@ -1,33 +1,32 @@
 public class CeilingFan {
     String roomName;
-    public static final int HIGH = 3;
-    public static final int MEDIUM = 2;
-    public static final int LOW = 1;
-    public static final int OFF = 0;
-    int speed;
+    public enum Speed {
+        HIGH, MEDIUM, LOW, OFF
+    }
+    Speed speed;
     public CeilingFan(String roomName) {
         this.roomName = roomName;
-        speed = OFF;
+        speed = Speed.OFF;
     }
 
     public void high() {
-        speed = HIGH;
+        speed = Speed.HIGH;
         System.out.println(roomName + " ceiling fan is on high");
     }
     public void medium() {
-        speed = MEDIUM;
+        speed = Speed.MEDIUM;
         System.out.println(roomName + " ceiling fan is on medium");
     }
     public void low() {
-        speed = LOW;
+        speed = Speed.LOW;
         System.out.println(roomName + " ceiling fan is on low");
     }
     public void off() {
-        speed = OFF;
+        speed = Speed.OFF;
         System.out.println(roomName + " ceiling fan is off");
     }
 
-    public int getSpeed() {
+    public Speed getSpeed() {
         return speed;
     }
 }

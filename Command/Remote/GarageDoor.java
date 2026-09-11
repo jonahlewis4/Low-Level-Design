@@ -13,7 +13,6 @@ public class GarageDoor {
     }
     void stop(){
         System.out.println(roomName + " Garage door stopping");
-
     }
     void lightOn(){
         System.out.println(roomName + " Garage door light is on");

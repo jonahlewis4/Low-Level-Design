@@ -41,7 +41,7 @@ public class RemoteControlWithUndo {
         for(int i = 0; i < onCommands.length; i++) {
             stringBuff.append("[slot ").append(i).append("] ").append(onCommands[i].getClass().getName()).append(" ").append(offCommands[i].getClass().getName()).append("\n");
         }
-        stringBuff.append("[undo] ").append(undoCommand.getClass().getName());
+        stringBuff.append("[undo] ").append(undoCommand.getClass().getName()).append("\n");
         return stringBuff.toString();
     }
 }
