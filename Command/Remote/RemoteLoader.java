@@ -1,6 +1,6 @@
 public class RemoteLoader {
     public static void main(String[] args) {
-        RemoteControl remoteControl = new RemoteControl();
+        RemoteControlWithUndo remoteControl = new RemoteControlWithUndo();
         Light livingRoomLight = new Light("Living Room");
         Light kitchenLight = new Light("Kitchen");
         CeilingFan ceilingFan= new CeilingFan("Living Room");
