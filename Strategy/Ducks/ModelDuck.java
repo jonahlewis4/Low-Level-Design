@@ -1,4 +1,4 @@
-public class ModelDuck extends Duck{
+public class ModelDuck extends Duck2 {
     public ModelDuck() {
         flyBehavior = new FlyNoWay();
         quackBehavior = new Quack();
