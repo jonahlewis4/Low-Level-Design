@@ -1,9 +1,11 @@
-public abstract class CaffeineBeverage {
+public abstract class CaffeineBeverageWithHook {
     final void prepareRecipe() {
         boilWater();
         brew();
         pourInCup();
-        addCondiments();
+        if(customerWantsCondiments()) {
+            addCondiments();
+        }
     }
 
     abstract void brew();
@@ -14,5 +16,8 @@ public abstract class CaffeineBeverage {
     }
     void pourInCup() {
         System.out.println("Pouring into cup");
+    }
+    boolean customerWantsCondiments() {
+        return true;
     }
 }

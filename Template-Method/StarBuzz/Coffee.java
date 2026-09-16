@@ -1,4 +1,4 @@
-public class Coffee extends CaffeineBeverage{
+public class Coffee extends CaffeineBeverageWithHook {
 
 
     @Override

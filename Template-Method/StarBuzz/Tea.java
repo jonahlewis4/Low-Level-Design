@@ -1,4 +1,4 @@
-public class Tea extends CaffeineBeverage{
+public class Tea extends CaffeineBeverageWithHook {
     @Override
     public void brew() {
         System.out.println("Steeping the tea");
