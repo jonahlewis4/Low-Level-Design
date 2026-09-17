@@ -1,0 +1,1 @@
+A collection of exercises that go along with "Head First Design Principles"
