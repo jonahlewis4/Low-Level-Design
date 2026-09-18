@@ -6,7 +6,10 @@ public class Duck3 implements Comparable<Duck3> {
         this.name = name;
         this.weight = weight;
     }
-        
+
+    public String toString() {
+        return name + " weighs " + weight;
+    }
     @Override
     public int compareTo(Duck3 other) {
         if(this.weight < other.weight) {
