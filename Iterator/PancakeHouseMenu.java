@@ -29,4 +29,7 @@ public class PancakeHouseMenu {
     public ArrayList<MenuItem> getMenuItems() {
         return menuItems;
     }
+    public Iterator<MenuItem> createIterator() {
+        return new PancakeHouseIterator(menuItems);
+    }
 }
