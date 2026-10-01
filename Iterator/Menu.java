@@ -1,6 +1,34 @@
-import java.util.Iterator;
+import java.util.ArrayList;
 
-public interface Menu {
-    public void addItem(String name, String description, boolean vegetarian, double price);
-    public Iterator<MenuItem> createIterator();
+public class Menu extends MenuComponent {
+    ArrayList<MenuComponent> menuComponents = new ArrayList<>();
+    String name;
+    String description;
+    public Menu(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+    public void add(MenuComponent menuComponent) {
+        menuComponents.add(menuComponent);
+    }
+    public void remove(MenuComponent menuComponent) {
+        menuComponents.remove(menuComponent);
+    }
+    public MenuComponent getChild(int i) {
+        return menuComponents.get(i);
+    }
+    public String getName() {
+        return name;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void print() {
+        System.out.print("\n" + getName());
+        System.out.println(", " + getDescription());
+        System.out.println("---------------------");
+
+        menuComponents.forEach(MenuComponent::print);
+    }
 }
