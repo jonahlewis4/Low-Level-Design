@@ -75,4 +75,28 @@ class GumballMachine {
             System.out.println("No gumball dispensed");
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("\nInventory: ").append(count).append(" gumball").append(count != 1 ? "s" : "");
+        result.append("\nMachine is ");
+
+        switch (state) {
+            case SOLD_OUT:
+                result.append("sold out");
+                break;
+            case NO_QUARTER:
+                result.append("waiting for quarter");
+                break;
+            case HAS_QUARTER:
+                result.append("waiting for turn of crank");
+                break;
+            case SOLD:
+                result.append("delivering a gumball");
+                break;
+        }
+        result.append("\n");
+        return result.toString();
+    }
 }
