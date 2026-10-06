@@ -65,7 +65,10 @@ public class GumballMachine {
     public int getCount() {
         return count;
     }
-
+    public void refill(int count) {
+        this.count = count;
+        state = noQuarterState;
+    }
     @Override
     public String toString() {
         return "\nInventory: " + count + " gumball" + (count != 1 ? "s" : "") +
