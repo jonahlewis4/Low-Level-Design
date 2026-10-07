@@ -1,3 +1,5 @@
+package Remote;
+
 import java.rmi.RemoteException;
 
 public class GumballMonitor {
