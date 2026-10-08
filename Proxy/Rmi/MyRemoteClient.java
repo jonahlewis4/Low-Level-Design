@@ -1,4 +1,3 @@
-package Rmi;
 
 import java.rmi.Naming;
 

@@ -1,8 +1,9 @@
-package Virtual;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+
+import static java.lang.Thread.sleep;
 
 public class ImageProxy implements Icon {
     ImageIcon imageIcon;
@@ -24,6 +25,7 @@ public class ImageProxy implements Icon {
                 retrieving = true;
                 retrievalThread = new Thread(() -> {
                     try {
+                        sleep(1000); //simulate wait time
                         imageIcon = new ImageIcon(imageURL, "CD Cover");
                         c.repaint();
                     } catch (Exception e) {
