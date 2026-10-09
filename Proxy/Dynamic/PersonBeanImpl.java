@@ -8,41 +8,42 @@ public class PersonBeanImpl implements PersonBean{
 
     @Override
     public String getName() {
-        return "";
+        return name;
     }
 
     @Override
     public String getGender() {
-        return "";
+        return gender;
     }
 
     @Override
     public String getInterests() {
-        return "";
+        return interests;
     }
 
     @Override
     public int getElo() {
-        return 0;
+        return eloCount == 0 ? 0 : elo / eloCount;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
     public void setGender(String gender) {
-
+        this.gender = gender;
     }
 
     @Override
     public void setInterests(String interests) {
-
+        this.interests = interests;
     }
 
     @Override
     public void setElo(int elo) {
-
+        this.elo += elo;
+        eloCount++;
     }
 }
