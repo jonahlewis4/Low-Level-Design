@@ -18,4 +18,12 @@ public interface PersonBean {
                 new OwnerInvocationHandler(person)
         );
     }
+
+    static PersonBean getNonOwnerProxy(PersonBean person) {
+        return (PersonBean) Proxy.newProxyInstance(
+                person.getClass().getClassLoader(),
+                person.getClass().getInterfaces(),
+                new NonOwnerInvocationHandler(person)
+        );
+    }
 }
