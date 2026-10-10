@@ -8,7 +8,6 @@ public class DuckSimulator {
     }
 
     void simulate(AbstractDuckFactory duckFactory) {
-        Quackable mallardDuck = duckFactory.createMallardDuck();
         Quackable redheadDuck = duckFactory.createRedheadDuck();
         Quackable duckCall = duckFactory.createDuckCall();
         Quackable rubberDuck = duckFactory.createRubberDuck();
