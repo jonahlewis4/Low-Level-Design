@@ -14,10 +14,12 @@ public abstract class Quackable implements QuackObservable{
         notifyObservers();
     }
 
+    @Override
     public void registerObserver(QuackObserver observer) {
         observable.registerObserver(observer);
     }
 
+    @Override
     public void notifyObservers() {
         observable.notifyObservers();
     }
