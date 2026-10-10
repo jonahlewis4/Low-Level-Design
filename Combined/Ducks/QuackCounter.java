@@ -18,4 +18,8 @@ public class QuackCounter extends Quackable {
     public static int getQuacks() {
         return  numberOfQuacks;
     }
+
+    public String toString() {
+        return duck.toString();
+    }
 }

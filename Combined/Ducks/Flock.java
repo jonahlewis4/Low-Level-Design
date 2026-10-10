@@ -15,4 +15,9 @@ public class Flock extends Quackable {
             quacker.quack();
         }
     }
+
+    @Override
+    public void registerObserver(QuackObserver observer) {
+        quackers.forEach(q->q.registerObserver(observer));
+    }
 }

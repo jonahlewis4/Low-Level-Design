@@ -23,4 +23,9 @@ public abstract class Quackable implements QuackObservable{
     public void notifyObservers() {
         observable.notifyObservers();
     }
+
+    @Override
+    public String  toString() {
+        return this.getClass().getName();
+    }
 }
