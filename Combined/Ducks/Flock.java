@@ -2,7 +2,7 @@ package Ducks;
 
 import java.util.ArrayList;
 
-public class Flock implements Quackable{
+public class Flock extends Quackable {
     ArrayList<Quackable> quackers = new ArrayList<>();
 
     public void add(Quackable quacker){
@@ -10,7 +10,7 @@ public class Flock implements Quackable{
     }
 
     @Override
-    public void quack() {
+    protected void performQuack() {
         for(Quackable quacker : quackers) {
             quacker.quack();
         }

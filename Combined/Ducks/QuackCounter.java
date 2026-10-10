@@ -1,6 +1,6 @@
 package Ducks;
 
-public class QuackCounter implements Quackable{
+public class QuackCounter extends Quackable {
     Quackable duck;
     static int numberOfQuacks;
 
@@ -10,7 +10,7 @@ public class QuackCounter implements Quackable{
 
 
     @Override
-    public void quack() {
+    protected void performQuack() {
         duck.quack();
         numberOfQuacks++;
     }

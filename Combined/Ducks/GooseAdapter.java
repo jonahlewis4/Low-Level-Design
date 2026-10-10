@@ -1,12 +1,12 @@
 package Ducks;
 
-public class GooseAdapter implements Quackable{
+public class GooseAdapter extends Quackable{
     Goose goose;
     public GooseAdapter(Goose goose) {
         this.goose = goose;
     }
 
-    public void quack() {
+    protected void performQuack() {
         goose.honk();
     }
 }

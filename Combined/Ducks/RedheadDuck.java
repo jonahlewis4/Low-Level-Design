@@ -1,8 +1,8 @@
 package Ducks;
 
-public class RedheadDuck implements Quackable{
+public class RedheadDuck extends Quackable {
     @Override
-    public void quack() {
+    protected void performQuack() {
         System.out.println("Quack");
     }
 }
